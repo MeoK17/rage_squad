@@ -1,0 +1,9 @@
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\bin\x64\Debug\netcoreapp3.1\server.deps.json
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\bin\x64\Debug\netcoreapp3.1\server.dll
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\bin\x64\Debug\netcoreapp3.1\server.pdb
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\obj\x64\Debug\netcoreapp3.1\server.csprojAssemblyReference.cache
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\obj\x64\Debug\netcoreapp3.1\server.AssemblyInfoInputs.cache
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\obj\x64\Debug\netcoreapp3.1\server.AssemblyInfo.cs
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\obj\x64\Debug\netcoreapp3.1\server.csproj.CoreCompileInputs.cache
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\obj\x64\Debug\netcoreapp3.1\server.dll
+C:\Users\Sergey\Desktop\redage_v2-main\server\dotnet\resources\server\obj\x64\Debug\netcoreapp3.1\server.pdb

@@ -1,0 +1,12 @@
+{
+	"maxplayers" : 100,
+	"name" : "Multiplayer", 
+	"gamemode" : "freeroam", 
+	"stream-distance" : 500.0,
+	"announce" : false,
+	"allow-cef-debugging": true,
+	"csharp" : "enabled",
+	"port": 22005,
+	"voice-chat": true,
+	"voice-chat-sample-rate": 48000
+}

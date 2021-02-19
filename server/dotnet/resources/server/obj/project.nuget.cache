@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "8EnKKqTPzwDVwwxfdYtoyUFudUNUw1/cNtwmBJlfYKa6wx4/LEo40xS5q7CdwIzLF+6AmXWLBYbmyBgM7krcCg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Sergey\\Desktop\\redage_v2-main\\server\\dotnet\\resources\\server\\server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sergey\\.nuget\\packages\\mysqlconnector\\1.1.0\\mysqlconnector.1.1.0.nupkg.sha512",
+    "C:\\Users\\Sergey\\.nuget\\packages\\ragemp-bootstrapper\\1.1.3\\ragemp-bootstrapper.1.1.3.nupkg.sha512",
+    "C:\\Users\\Sergey\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.113.1\\stub.system.data.sqlite.core.netstandard.1.0.113.1.nupkg.sha512",
+    "C:\\Users\\Sergey\\.nuget\\packages\\system.data.sqlite.core\\1.0.113.6\\system.data.sqlite.core.1.0.113.6.nupkg.sha512"
+  ],
+  "logs": []
+}
