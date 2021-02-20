@@ -25,7 +25,7 @@ namespace RageSquad
 
     public class Main : Script
     { 
-        public static string Version { get; } = $"1.2.6";
+        public static string Version { get; } = $"1.3.0";
         public static DateTime StartDate { get; } = DateTime.Now;
         public static DateTime CompileDate { get; } = new FileInfo(Assembly.GetExecutingAssembly().Location).LastWriteTime;
 
@@ -252,7 +252,7 @@ namespace RageSquad
                         catch (Exception e) { Log.Write("ResourceStart: " + e.Message, nLog.Type.Error); }
                     }
                 }
-                else Log.Write("DB `characters` return null result", nLog.Type.Warn);                                     //
+                else Log.Write("DB `characters` return null result", nLog.Type.Warn);
 
                 result = MySQL.QueryRead("SELECT `login`,`socialclub`,`email`,`hwid` FROM `accounts`");
                 if (result != null)
@@ -3320,8 +3320,8 @@ namespace RageSquad
         {
             try
             {
-                client.SendChatMessage($"!{{#FFDC33}}Сборка (!{{#98FB98}}Rage Squad!{{#FFDC33}}) Версия сборки: !{{#98FB98}}{Version}");
-                client.SendChatMessage($"!{{#FFDC33}}Дискорд - !{{#98FB98}}https://discord.gg/kAxAFrvjWY");
+                client.SendChatMessage($"!{{#C4C4C4}}Сборка (!{{#FF3636}}Rage Squad!{{#C4C4C4}}) Версия сборки: !{{#FF3636}}{Version}");
+                client.SendChatMessage($"!{{#C4C4C4}}Дискорд - !{{#FF3636}}https://discord.gg/XTVWDE6ZRT");
             }
             catch { }
         }

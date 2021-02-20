@@ -41,7 +41,6 @@ namespace RageSquad.Jobs
             {
                 Cols.Add(0, NAPI.ColShape.CreateCylinderColShape(Points[0], 1, 2, 0)); // job placement
                 Cols[0].OnEntityEnterColShape += JobMenu_onEntityEnterColShape; // job placement point handler
-                NAPI.TextLabel.CreateTextLabel(Main.StringToU16("~b~Работа"), new Vector3(Points[0].X, Points[0].Y, Points[0].Z + 0.5), 10F, 0.3F, 0, new Color(255, 255, 255));
                 NAPI.Marker.CreateMarker(1, Points[0] - new Vector3(0, 0, 0.7), new Vector3(), new Vector3(), 1f, new Color(255, 255, 255, 220));
 
                 // blips

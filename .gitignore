@@ -1,3 +1,7 @@
-game_resources
+server/client_packages/game_resources/dlcpacks
 .listcache
 .idea
+server/.idea
+server/packages
+server/plugins
+server/RageSquad.db

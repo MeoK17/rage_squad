@@ -8,8 +8,8 @@
     display: flex;
     width: 550px;
     height: 103px;
-    border-radius: 300px 300px 0px 0px;
-	background: linear-gradient(56deg, #f98787 37%, #f73939 56%);
+    border-radius: 20px 20px 0px 0px;
+	background: #242424;
 }
 
 .header i {
@@ -19,7 +19,6 @@
     top: 45px;
     left: 41px;
     position: relative;
-    /* width: 550px; */
     cursor: pointer;
 }
 
@@ -27,8 +26,7 @@
     position: relative;
     width: 400px;
     height: auto;
-    top: -3px;
-    left: 60px;
+    margin: 18px auto -18px auto;
 }
 
 .main {
@@ -36,14 +34,14 @@
     flex-direction: column;
     width: 550px;
     height: 543px;
-    background: rgba(0, 0, 0, 0.65);
+    background: #242424;
 }
 
 .footer {
     display: flex;
     width: 550px;
     height: 147px;
-    background: rgba(0, 0, 0, 0.65);
+    background: #242424;
     border-radius: 0px 0px 15px 15px;
 }
 
@@ -74,7 +72,6 @@
 progress {
     margin-left: 40px;
     width: 180px;
-    background: rgba(255, 255, 255, 0.15);
     border-radius: 27px;
 }
 
@@ -347,7 +344,7 @@ a {
     /**/
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #ff4545;
+    background-color: #FF3636;
     border-radius: 2px;
 }
 

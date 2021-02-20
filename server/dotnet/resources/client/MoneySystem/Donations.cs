@@ -33,10 +33,10 @@ namespace RageSquad.MoneySystem
         public static void LoadDonations()
         {
             Connection =
-                $"Host={config.TryGet<string>("Host", "185.71.65.109")};" +
-                $"User={config.TryGet<string>("User", "donations")};" +
-                $"Password={config.TryGet<string>("Password", "Z6NfNpQyEcyFECB7")};" +
-                $"Database={config.TryGet<string>("Database", "payments")};" +
+                $"Host={config.TryGet<string>("Host", "127.0.0.1")};" +
+                $"User={config.TryGet<string>("User", "RageSquad")};" +
+                $"Password={config.TryGet<string>("Password", "password")};" +
+                $"Database={config.TryGet<string>("Database", "bd")};" +
                 $"{config.TryGet<string>("SSL", "SslMode=None;")}";
 
             SYNCSTR = string.Format("select * from completed where srv={0}", Main.oldconfig.ServerNumber);
@@ -165,166 +165,6 @@ namespace RageSquad.MoneySystem
             PlatinumVIP,
             Warn,
             Slot,
-            GiveBox,
-            WheelsRun,
-        }
-
-        private static SortedList<int, string> CarName = new SortedList<int, string>
-        {
-            {3, "g65" },
-            {4, "c63coupe" },
-            {5, "apriora" },
-            {6, "bmwe34" },
-
-        };
-        private static SortedList<int, string> CarNameS = new SortedList<int, string>
-        {
-            {1, "Neon" },
-            {2, "Sultan" },
-            {3, "nero" },
-            {4, "caracara2" },
-
-        };
-
-        [RemoteEvent("wheelAddsrv")]
-        public void wheelAdd(Player client, int id, bool add)
-        {
-            if (!Main.Accounts.ContainsKey(client)) return;
-            switch (id)
-            {
-                case 0:
-                    MoneySystem.Wallet.Change(client, 50000);
-                    Log.Write("Деньги пришли в размере 50 000", nLog.Type.Success);
-                    break;
-                case 1:
-                    MoneySystem.Wallet.Change(client, 100000);
-                    Log.Write("Деньги пришли в размере 100 000", nLog.Type.Success);
-                    break;
-                case 2:
-                    MoneySystem.Wallet.Change(client, 150000);
-                    Log.Write("Деньги пришли в размере 150 000", nLog.Type.Success);
-                    break;
-                case 3:
-                    if (add)
-                    {
-                        var vNumber = VehicleManager.Create(client.Name, CarName[id], new Color(0, 0, 0), new Color(0, 0, 0), new Color(0, 0, 0));
-                        var house = Houses.HouseManager.GetHouse(client, false);
-                        if (house != null)
-                        {
-                            if (house.GarageID != 0)
-                            {
-                                var garage = Houses.GarageManager.Garages[house.GarageID];
-                                if (VehicleManager.getAllPlayerVehicles(client.Name).Count < Houses.GarageManager.GarageTypes[garage.Type].MaxCars)
-                                {
-                                    garage.SpawnCar(vNumber);
-                                    Notify.Send(client, NotifyType.Success, NotifyPosition.BottomCenter, $"", 3000);
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 4:
-                    if (add)
-                    {
-                        var vNumber = VehicleManager.Create(client.Name, CarName[id], new Color(0, 0, 0), new Color(0, 0, 0), new Color(0, 0, 0));
-                        var house = Houses.HouseManager.GetHouse(client, false);
-                        if (house != null)
-                        {
-                            if (house.GarageID != 0)
-                            {
-                                var garage = Houses.GarageManager.Garages[house.GarageID];
-                                if (VehicleManager.getAllPlayerVehicles(client.Name).Count < Houses.GarageManager.GarageTypes[garage.Type].MaxCars)
-                                {
-                                    garage.SpawnCar(vNumber);
-                                    Notify.Send(client, NotifyType.Success, NotifyPosition.BottomCenter, $"", 3000);
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 5:
-                    if (add)
-                    {
-                        var vNumber = VehicleManager.Create(client.Name, CarName[id], new Color(0, 0, 0), new Color(0, 0, 0), new Color(0, 0, 0));
-                        var house = Houses.HouseManager.GetHouse(client, false);
-                        if (house != null)
-                        {
-                            if (house.GarageID != 0)
-                            {
-                                var garage = Houses.GarageManager.Garages[house.GarageID];
-                                if (VehicleManager.getAllPlayerVehicles(client.Name).Count < Houses.GarageManager.GarageTypes[garage.Type].MaxCars)
-                                {
-                                    garage.SpawnCar(vNumber);
-                                    Notify.Send(client, NotifyType.Success, NotifyPosition.BottomCenter, $"", 3000);
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 6:
-                    if (add)
-                    {
-                        var vNumber = VehicleManager.Create(client.Name, CarName[id], new Color(0, 0, 0), new Color(0, 0, 0), new Color(0, 0, 0));
-                        var house = Houses.HouseManager.GetHouse(client, false);
-                        if (house != null)
-                        {
-                            if (house.GarageID != 0)
-                            {
-                                var garage = Houses.GarageManager.Garages[house.GarageID];
-                                if (VehicleManager.getAllPlayerVehicles(client.Name).Count < Houses.GarageManager.GarageTypes[garage.Type].MaxCars)
-                                {
-                                    garage.SpawnCar(vNumber);
-                                    Notify.Send(client, NotifyType.Success, NotifyPosition.BottomCenter, $"", 3000);
-                                }
-                            }
-                        }
-                    }
-                    break;
-                case 7:
-                    Weapons.GiveWeapon(client, ItemType.Bat, "donatejrp");
-                    break;
-                case 8:
-                    Customization.AddClothes(client, ItemType.Mask, 159, 0);
-                    break;
-                case 9:
-                    Main.Players[client].EXP += 10;
-                    break;
-                case 10:
-                    Customization.AddClothes(client, ItemType.Top, 178, 0);
-                    Customization.AddClothes(client, ItemType.Leg, 77, 0);
-                    Customization.AddClothes(client, ItemType.Feet, 55, 0);
-                    break;
-                case 11:
-                    MoneySystem.Wallet.Change(client, 200000);
-                    Log.Write("Деньги пришли в размере 200 000", nLog.Type.Success);
-                    break;
-                case 12:
-                    MoneySystem.Wallet.Change(client, 250000);
-                    Log.Write("Деньги пришли в размере 250 000", nLog.Type.Success);
-                    break;
-                case 13:
-                    MoneySystem.Wallet.Change(client, 300000);
-                    Log.Write("Деньги пришли в размере 300 000", nLog.Type.Success);
-                    break;
-                case 14:
-                    MoneySystem.Wallet.Change(client, 350000);
-                    Log.Write("Деньги пришли в размере 350 000", nLog.Type.Success);
-                    break;
-                case 15:
-                    MoneySystem.Wallet.Change(client, 400000);
-                    Log.Write("Деньги пришли в размере 400 000", nLog.Type.Success);
-                    break;
-                case 16:
-                    MoneySystem.Wallet.Change(client, 450000);
-                    Log.Write("Деньги пришли в размере 450 000", nLog.Type.Success);
-                    break;
-                case 17:
-                    MoneySystem.Wallet.Change(client, 500000);
-                    Log.Write("Деньги пришли в размере 500 000", nLog.Type.Success);
-                    break;
-
-
-            }
         }
 
         [RemoteEvent("donate")]
@@ -339,50 +179,6 @@ namespace RageSquad.MoneySystem
 
                 switch (type)
                 {
-                    case Type.WheelsRun:
-                        {
-                            if (Main.Accounts[client].RedBucks < 500)
-                            {
-                                Notify.Send(client, NotifyType.Error, NotifyPosition.BottomCenter, "Недостаточно RedBucks!", 3000);
-                                return;
-                            }
-                            Main.Accounts[client].RedBucks -= 500;
-                            GameLog.Money(acc.Login, "server", 500, "donateChar");
-                            Trigger.ClientEvent(client, "WheelsRun");
-                            break;
-                        }
-                    case Type.GiveBox:
-                        {
-                            int amount = 0;
-                            if (!Int32.TryParse(data, out amount))
-                            {
-                                Notify.Send(client, NotifyType.Error, NotifyPosition.BottomCenter, "Возникла ошибка, попоробуйте еще раз", 3000);
-                                return;
-                            }
-                            amount = Math.Abs(amount);
-                            if (amount <= 0)
-                            {
-                                Notify.Send(client, NotifyType.Error, NotifyPosition.BottomCenter, "Введите количество, равное 1 или больше.", 3000);
-                                return;
-                            }
-                            if (Main.Accounts[client].RedBucks < amount * 100)
-                            {
-                                Notify.Send(client, NotifyType.Error, NotifyPosition.BottomCenter, "Недостаточно RedBucks!", 3000);
-                                return;
-                            }
-                            var tryAdd = nInventory.TryAdd(client, new nItem(ItemType.Present, 1));
-                            if (tryAdd == -1 || tryAdd > 0)
-                            {
-                                Notify.Send(client, NotifyType.Error, NotifyPosition.BottomCenter, "Недостаточно места в инвентаре", 3000);
-                                return;
-                            }
-                            Main.Accounts[client].RedBucks -= 100 * amount;
-                            GameLog.Money(acc.Login, "server", 100 * amount, "donateChar");
-                            nInventory.Add(client, new nItem(ItemType.Present, amount, ""));
-                            Notify.Send(client, NotifyType.Success, NotifyPosition.BottomCenter, $"Вы купили {amount} кейсов", 3000);
-                            GUI.Dashboard.sendItems(client);
-                            break;
-                        }
                     case Type.Character:
                         {
                             if (acc.RedBucks < 100)

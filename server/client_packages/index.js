@@ -301,11 +301,7 @@ require('./farmerWork/market/');
 require('./betternotifs/index.js');
 
 require('./repair.js');
-
-require('./ipad.js');
 require('./infoped.js');
-
-require('./jobs.js');
 
 // // // // // // //
 

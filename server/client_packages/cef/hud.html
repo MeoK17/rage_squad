@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1.0" name="viewport">
     <link rel="stylesheet" href="css/chat.css">
-    <link rel="stylesheet" href="css/hud_new.css">
+    <link rel="stylesheet" href="css/hud.css">
     <link rel="stylesheet" href="fonts/notify.css">
     <link rel="stylesheet" href="css/noty.css" />
     <link rel="stylesheet" href="css/theme.css" />
@@ -13,85 +13,40 @@
 
     <div id="safezone">
         <div class="inGameHud" v-if="show" style="">
-		
-			<!--<div class="header_hud">
-				<div class="online"><img src="images/hud/user.png" class="user"><a class="onlinecount">{{online}}</a></div>
-				<div class="id">ID {{playerId}}<br>({{personId}})</div>
-				<img src="images/hud/logo-anim.gif" width="60" height="60" class="logo">
-			</div>-->
 			<div class="header_hud">
-				<span>ID: {{playerId}} ({{personId}}) RAGE SQUAD</span>
+				<span style="display: inline-flex;">ID: {{playerId}} ({{personId}}) <img src="./images/hud/logo.png" width="85" height="20" style="margin-left: 6px;margin-top: 2px;"></span>
 			</div>
 			<div class="state">
 				<div class="balance">${{money}}</div>
 				<div class="balance">${{bank}}</div>
 			</div>
-
-            <!--<div class="bonus">
-				<div class="bonus-bar" v-if="!bonusblock">
-					<i @click="showbonus()" class="fa fa-gift" aria-hidden="true"></i>
-				</div>
-				<div class="bonus-block" v-else>
-					<header>
-						<span>Вы получите бонус через:</span>
-						<i @click="showbonus()" aria-hidden="true" class="fa fa-times"></i>
-					</header>
-					<div class="main">
-						<p>
-							{{lastbonus}}
-						</p>
-					</div>
-				</div>
-			</div>-->
-			
-			<div class="speedometer_hud" :style="{ opacity: inVeh ? 1 : 0 }">
-				<div class="speedcount" v-if="speed < 100"><a class="count">{{speed}}</a><p>км/ч</p></div>
-				<div class="speedcount" v-else-if="speed < 200"><a class="count" style="color:#eda123">{{speed}}</a><p>км/ч</p></div>
-				<div class="speedcount" v-else="speed < 300"><a class="count" style="color:red">{{speed}}</a><p>км/ч</p></div>
-				<div class="fuel"><a>{{fuel}} л.</a><img src="images/hud/fuel.svg" style="opacity:0.2" class="fuel_ico"></div>
-				
-				<div class="help_car">
-				<div v-if="engine" class="helps"><img src="images/hud/engine.png" class="icon_help"><p>B</p></div>
-				<div v-else class="helps"><img src="images/hud/engine.png" style="opacity:0.5;transition: all .33s;" class="icon_help"><p>B</p></div>
-				<div v-if="belt" class="helps"><img src="images/hud/belt.png" class="icon_help"><p>J</p></div>
-				<div v-else class="helps"><img src="images/hud/belt.png" style="opacity:0.5;transition: all .33s;" class="icon_help"><p>J</p></div>
-				<div v-if="doors" class="helps"><img src="images/hud/door.svg" class="icon_help"><p>L</p></div>
-				<div v-else class="helps"><img src="images/hud/door.svg" style="opacity:0.5;transition: all .33s;" class="icon_help"><p>L</p></div>
-				</div>
-			</div>
-			
-			<div class="steet_block">
-				<div class="crossingroad">{{crossingRoad}}</div>
-				<div class="street"><img src="images/hud/marker.png" class="marker">{{street}}</div>
-				<div class="info_table">
-                    <div class="eatings">
-                        <div class="eat"><img src="images/hud/eat.svg" class="icohud">
-                            <a v-if="eat < 20" style="color:red;">{{eat}}</a>
-                            <a v-else-if="eat < 50" style="color:#E1E442;">{{eat}}</a>
-                            <a v-else>{{eat}}</a>
-                        </div>
-                        <div class="water"><img src="images/hud/water.svg" class="waterhud">
-                            <a v-if="water < 20" style="color:red;">{{water}}</a>
-                            <a v-else-if="water < 50" style="color:#E1E442;">{{water}}</a>
-                            <a v-else>{{water}}</a>
-                        </div>
+            <div class="car_hud" :style="{ opacity: inVeh ? 1 : 0 }">
+                <div class="info_hud">
+                    <div v-if="engine"><img src="images/hud/engine.svg"></div>
+                    <div v-else><img src="images/hud/engine.svg" style="opacity:0.5;transition: all .33s;"></div>
+                    <div v-if="belt"><img src="images/hud/belt.svg"></div>
+                    <div v-else><img src="images/hud/belt.svg" style="opacity:0.5;transition: all .33s;"></div>
+                    <div v-if="doors"><img src="images/hud/door.svg"></div>
+                    <div v-else><img src="images/hud/door.svg" style="opacity:0.5;transition: all .33s;"></div>
+                </div>
+                <div class="speed_hud">
+                    <div class="speed"><span>{{speed}}</span>км/ч</div>
+                    <div class="stats">
+                        <div class="fuel">Топливо:<span>{{fuel}}F</span></div>
+                        <div class="armor">Защита:<span>{{hp}}%</span></div>
                     </div>
-					<div class="info"><img src="images/hud/mobile.png" class="icon"><p>M</p></div>
-					<div v-if="mic" class="info"><img src="images/hud/micro.svg" class="icon" style="opacity:1;transition: all .33s;"><p class="activeP">N</p></div>
-					<div v-else class="info"><img src="images/hud/micro.svg" class="icon"><p>N</p></div>
-				</div>
-			</div>
-		</div>
-            
-        <div id="chat" class="chat">
-            <ul id="chat_messages"></ul>
+                </div>
+            </div>
         </div>
-        
-        <div id="prompt" v-if="text">
-            <div class="text" v-html="text"></div>
-        </div>
-        <div id="notify">
-        </div> 
+    </div>
+    <div id="chat" class="chat">
+        <ul id="chat_messages"></ul>
+    </div>
+
+    <div id="prompt" v-if="text">
+        <div class="text" v-html="text"></div>
+    </div>
+    <div id="notify"></div>
     <div id="effect"></div>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/vue.js"></script>

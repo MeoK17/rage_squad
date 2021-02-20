@@ -253,17 +253,11 @@ mp.keys.bind(Keys.VK_F5, false, function () { // F5 key
         global.menuClose();
         mp.gui.cursor.visible = false;
     }
-    if (global.showhud && showHint) {
-        showHint = false;
-        mp.gui.execute(`hidehelp(${!showHint})`);
-    }
-    else if (global.showhud) {
+    if (global.showhud) {
         global.showhud = !global.showhud;
         mp.events.call('showHUD', global.showhud);
     }
     else {
-        showHint = true;
-        mp.gui.execute(`hidehelp(${!showHint})`);
         global.showhud = !global.showhud;
         mp.events.call('showHUD', global.showhud);
     }
@@ -275,13 +269,11 @@ mp.keys.bind(Keys.VK_J, false, function () { // belt system (J key)
 
         if (hudstatus.belt) {
             localplayer.setConfigFlag(32, true);
-            //mp.events.call('notify', 2, 2, "Вы отстегнули ремень безопасности", 2000);
-            mp.game.graphics.notify('~r~Вы отстегнули ремень безопасности');
+            mp.events.call('notify', 2, 9, "Вы отстегнули ремень безопасности", 2000);
         }
         else {
             localplayer.setConfigFlag(32, false);
-            //mp.events.call('notify', 2, 2, "Вы пристегнули ремень безопасности", 2000);
-            mp.game.graphics.notify('~g~Вы пристегнули ремень безопасности');
+            mp.events.call('notify', 2, 9, "Вы пристегнули ремень безопасности", 2000);
         }
 
         hudstatus.belt = !hudstatus.belt;
@@ -499,7 +491,7 @@ mp.events.add('render', (nametags) => {
 
 			if (new Date().getTime() - hudstatus.updatespeedTimeout > 50) {
 				let speed = (veh.getSpeed() * 3.6).toFixed();
-				mp.gui.execute(`HUD.updateSpeed(${speed})`);
+				mp.gui.execute(`HUD.speed=${speed}`);
 				hudstatus.updatespeedTimeout = new Date().getTime();
 
 				if (cruiseSpeed != -1) // kostyl'
@@ -522,8 +514,4 @@ mp.events.add('UpdateEat', function (temp, amount) {
 
 mp.events.add('UpdateWater', function (temp, amount) {
     mp.gui.execute(`HUD.water=${temp}`);
-});
-
-mp.events.add('updlastbonus', function (bonus) {
-    mp.gui.execute(`HUD.lastbonus="${bonus}"`);
 });

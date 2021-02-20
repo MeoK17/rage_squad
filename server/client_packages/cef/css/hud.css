@@ -1,0 +1,154 @@
+﻿@media  (max-width: 1300px)  {
+	.inGameHud {zoom: 70%}
+}
+@media (min-width: 1301px) and (max-width: 1400px) {
+	.inGameHud {zoom: 80%}
+}
+@media (min-width: 1401px) and (max-width: 1650px) {
+	.inGameHud {zoom: 80%}
+}
+@media (min-width: 1651px) and (max-width: 2560px) {
+	.inGameHud {zoom: 100%}
+}
+
+
+body {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	overflow: hidden;
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+#effect {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#safezone {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .58s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}
+
+.inGameHud {
+	position: absolute;
+	margin: 0 auto;
+	line-height: normal;
+	color:#fff;
+	width: 100%;
+	height: 100%;
+	-webkit-animation-name: opacity, slide;
+	animation-name: opacity, slide;
+	-webkit-animation-duration: .5s, .5s;
+	animation-duration: .5s, .5s;
+	-webkit-animation-timing-function: ease, ease;
+	animation-timing-function: ease, ease;
+}
+.inGameHud .header_hud{
+	position: absolute;
+	display: flex;
+	font-size: 16px;
+	right: 0%;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.3);
+}
+.inGameHud .header_hud .logo{
+	opacity: 0.8;
+	position: absolute;
+}
+.inGameHud .header_hud .online{
+	position: relative;
+	left: -35%;
+	top: 15%;
+}
+.inGameHud .header_hud .id{
+	position: relative;
+	left: -120%;
+	opacity: 0.5;
+	top: 14%;
+}
+.inGameHud .header_hud .user{
+	width: 51%;
+	position: relative;
+}
+.inGameHud .header_hud .onlinecount{
+	position: absolute;
+	top: -1%;
+	left: 62%;
+	letter-spacing: 0.05em;
+	color: #ffffffb8;
+}
+
+.inGameHud .state {
+	position: absolute;
+	top: 80px;
+	right: 0%;
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.inGameHud .balance {
+	font-size: 25px;
+	color: #ffffffd4;
+	text-align: end;
+}
+
+.inGameHud .car_hud {
+	position: absolute;
+	right: 0%;
+	bottom: 0%;
+}
+
+.inGameHud .car_hud .info_hud {
+	background: rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	display: flex;
+	font-size: 17px;
+	padding: 10px 20px 10px 20px;
+	margin-bottom: 2px;
+}
+
+.inGameHud .car_hud .info_hud div {
+	margin: auto;
+}
+
+.inGameHud .car_hud .speed_hud {
+	background: rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	display: flex;
+	font-size: 17px;
+	padding: 10px 20px 10px 20px;
+}
+
+.inGameHud .car_hud .speed_hud .speed {
+	display: inline-grid;
+	text-align: center;
+}
+
+.inGameHud .car_hud .speed_hud .speed span {
+	font-size: 31px;
+}
+
+.inGameHud .car_hud .speed_hud .stats {
+	text-align: right;
+	margin: auto 0 auto 20px;
+}
+
+.inGameHud .car_hud .speed_hud .stats span {
+	margin-left: 5px;
+}
